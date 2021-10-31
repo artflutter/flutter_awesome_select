@@ -15,8 +15,6 @@ import 'model/group_sort.dart';
 import 'model/chosen.dart';
 import 'state/choices.dart';
 import 'state/filter.dart';
-// import 'state/selected.dart';
-// import 'state/selection.dart';
 import 'choices_resolver.dart';
 import 'tile/tile.dart';
 import 'utils/debouncer.dart';
@@ -326,7 +324,7 @@ class SmartSelect<T> extends StatefulWidget {
   ///
   /// The [groupConfig] is a configuration to customize grouped widget.
   ///
-  /// The [groupEnabled] is shortcut to [groupConfig.enabled], alterative to [choiceGrouped],
+  /// The [groupEnabled] is shortcut to [groupConfig.enabled], alternative to [choiceGrouped],
   /// whether the choices list is grouped or not, based on [S2Choice.group].
   ///
   /// The [groupSelector] is shortcut to [groupConfig.useSelector],
@@ -650,7 +648,7 @@ class SmartSelect<T> extends StatefulWidget {
   ///
   /// The [groupConfig] is a configuration to customize grouped widget.
   ///
-  /// The [groupEnabled] is shortcut to [groupConfig.enabled], alterative to [choiceGrouped],
+  /// The [groupEnabled] is shortcut to [groupConfig.enabled], alternative to [choiceGrouped],
   /// whether the choices list is grouped or not, based on [S2Choice.group].
   ///
   /// The [groupSelector] is shortcut to [groupConfig.useSelector],
@@ -1681,7 +1679,13 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
     super.didUpdateWidget(oldWidget);
 
     // reset the initial choices
-    if (oldWidget.choiceItems != widget.choiceItems) resolveChoices();
+    if (oldWidget.choiceItems != widget.choiceItems) {
+      resolveChoices();
+      WidgetsBinding.instance?.addPostFrameCallback((_) {
+        choices?.reload();
+        modalSetState?.call(() {});
+      });
+    }
   }
 
   @override
