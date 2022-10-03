@@ -1,3 +1,7 @@
+## [Next]
+* Adds new configurable option to not shrink wrap list items using `S2ChoiceConfig.shrinkWrap` or `SmartSelect.single.choiceShrinkWrap`/`SmartSelect.multiple.choiceShrinkWrap`.
+  If `choiceShrinkWrap` is true choices list will shrink wrap the choices, causing the list to resize based on the number of available choices, by default it will shrink wrap which was the default behaviour before this change.
+
 ## [6.5.0-beta]
 * type fixes
 

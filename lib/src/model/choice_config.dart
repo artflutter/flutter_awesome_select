@@ -110,6 +110,10 @@ class S2ChoiceConfig with Diagnosticable {
   /// Time delay before display the choices
   final Duration? delay;
 
+  /// If true choices list will shrink wrap the choices, causing the list to
+  /// resize based on the number of available choices.
+  final bool shrinkWrap;
+
   /// Create choices configuration
   const S2ChoiceConfig({
     this.type,
@@ -131,6 +135,7 @@ class S2ChoiceConfig with Diagnosticable {
     this.physics = const ScrollPhysics(),
     this.pageLimit,
     this.delay,
+    this.shrinkWrap = true,
   });
 
   /// Whether the [layout] is [S2ChoiceLayout.wrap] or [type] is [S2ChoiceType.chips]
@@ -166,6 +171,7 @@ class S2ChoiceConfig with Diagnosticable {
     ScrollPhysics? physics,
     int? pageLimit,
     Duration? delay,
+    bool? shrinkWrap,
   }) {
     return S2ChoiceConfig(
       type: type ?? this.type,
@@ -187,6 +193,7 @@ class S2ChoiceConfig with Diagnosticable {
       physics: physics ?? this.physics,
       pageLimit: pageLimit ?? this.pageLimit,
       delay: delay ?? this.delay,
+      shrinkWrap: shrinkWrap ?? this.shrinkWrap,
     );
   }
 
@@ -216,6 +223,7 @@ class S2ChoiceConfig with Diagnosticable {
       physics: other.physics,
       pageLimit: other.pageLimit,
       delay: other.delay,
+      shrinkWrap: other.shrinkWrap,
     );
   }
 }

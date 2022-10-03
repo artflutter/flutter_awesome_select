@@ -281,6 +281,9 @@ class SmartSelect<T> extends StatefulWidget {
   /// The [choiceDelay] is shortcut to [choiceConfig.delay],
   /// time delay before display the choices.
   ///
+  /// If [choiceShrinkWrap] is true choices list will shrink wrap the choices,
+  /// causing the list to resize based on the number of available choices.
+  ///
   /// The [groupConfig] is a configuration to customize grouped widget.
   ///
   /// The [groupEnabled] is shortcut to [groupConfig.enabled], alterative to [choiceGrouped],
@@ -377,6 +380,7 @@ class SmartSelect<T> extends StatefulWidget {
     double? choiceGridSpacing,
     int? choicePageLimit,
     Duration? choiceDelay,
+    bool? choiceShrinkWrap,
     S2GroupConfig? groupConfig,
     bool? groupEnabled,
     bool? groupSelector,
@@ -452,6 +456,7 @@ class SmartSelect<T> extends StatefulWidget {
             activeStyle: choiceActiveStyle,
             pageLimit: choicePageLimit,
             delay: choiceDelay,
+            shrinkWrap: choiceShrinkWrap,
           ),
       groupConfig: defaultGroupConfig.merge(groupConfig).copyWith(
             enabled: groupEnabled ?? choiceGrouped,
@@ -605,6 +610,9 @@ class SmartSelect<T> extends StatefulWidget {
   /// The [choiceDelay] is shortcut to [choiceConfig.delay],
   /// time delay before display the choices.
   ///
+  /// If [choiceShrinkWrap] is true choices list will shrink wrap the choices,
+  /// causing the list to resize based on the number of available choices.
+  ///
   /// The [groupConfig] is a configuration to customize grouped widget.
   ///
   /// The [groupEnabled] is shortcut to [groupConfig.enabled], alterative to [choiceGrouped],
@@ -700,6 +708,7 @@ class SmartSelect<T> extends StatefulWidget {
     double? choiceGridSpacing,
     int? choicePageLimit,
     Duration? choiceDelay,
+    bool? choiceShrinkWrap,
     S2GroupConfig? groupConfig,
     bool? groupEnabled,
     bool? groupSelector,
@@ -775,6 +784,7 @@ class SmartSelect<T> extends StatefulWidget {
             activeStyle: choiceActiveStyle,
             pageLimit: choicePageLimit,
             delay: choiceDelay,
+            shrinkWrap: choiceShrinkWrap,
           ),
       groupConfig: defaultGroupConfig.merge(groupConfig).copyWith(
             enabled: groupEnabled ?? choiceGrouped,
