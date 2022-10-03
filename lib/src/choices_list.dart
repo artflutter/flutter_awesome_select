@@ -71,7 +71,7 @@ class S2ChoicesList<T> extends StatelessWidget {
 
   Widget _listDefault() {
     return ListView.builder(
-      shrinkWrap: true,
+      shrinkWrap: config.shrinkWrap,
       physics: config.physics,
       scrollDirection: config.direction,
       padding: config.padding ?? const EdgeInsets.symmetric(vertical: 10.0),
@@ -82,7 +82,7 @@ class S2ChoicesList<T> extends StatelessWidget {
 
   Widget _listSeparated() {
     return ListView.separated(
-      shrinkWrap: true,
+      shrinkWrap: config.shrinkWrap,
       physics: config.physics,
       scrollDirection: config.direction,
       padding: config.padding ?? const EdgeInsets.symmetric(vertical: 10.0),
@@ -94,7 +94,7 @@ class S2ChoicesList<T> extends StatelessWidget {
 
   Widget _listGrid() {
     return GridView.builder(
-      shrinkWrap: true,
+      shrinkWrap: config.shrinkWrap,
       physics: config.physics,
       scrollDirection: config.direction,
       padding: config.padding ?? const EdgeInsets.all(10.0),
