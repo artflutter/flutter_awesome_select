@@ -1,15 +1,16 @@
 import 'package:collection/collection.dart' show ListEquality;
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
-import '../state/choices.dart';
-import '../state/filter.dart';
-import '../choices_resolver.dart';
-import '../utils/debouncer.dart';
-import '../choices_list.dart';
+
 import '../choices_empty.dart';
+import '../choices_list.dart';
+import '../choices_resolver.dart';
 import '../modal.dart';
 import '../pagination.dart';
+import '../state/choices.dart';
+import '../state/filter.dart';
 import '../text_error.dart';
+import '../utils/debouncer.dart';
 
 /// Smart Select State
 abstract class S2State<T> extends State<SmartSelect<T>> {
@@ -138,8 +139,8 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
         backgroundColor:
             widget.modalConfig.isFullPage != true ? theme.cardColor : null,
         textStyle: widget.modalConfig.isFullPage != true
-            ? theme.textTheme.headline6
-            : theme.primaryTextTheme.headline6,
+            ? theme.textTheme.headlineSmall
+            : theme.primaryTextTheme.headlineSmall,
         iconTheme:
             widget.modalConfig.isFullPage != true ? theme.iconTheme : null,
         errorStyle: const TextStyle(
@@ -242,7 +243,7 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
   /// Returns the modal title widget
   Widget get modalTitle {
     String title = modalConfig.title ?? widget.title ?? widget.placeholder!;
-    return Container(child: Text(title, style: modalHeaderStyle.textStyle));
+    return Text(title, style: modalHeaderStyle.textStyle);
   }
 
   void modalErrorShake() {
@@ -348,10 +349,10 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
               icon: modalConfig.confirmIcon!,
               label: modalConfig.confirmLabel!,
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color?>(
+                backgroundColor: WidgetStateProperty.all<Color?>(
                   modalConfig.confirmIsDark ? modalConfig.confirmColor : null,
                 ),
-                textStyle: MaterialStateProperty.all<TextStyle>(
+                textStyle: WidgetStateProperty.all<TextStyle>(
                   TextStyle(
                       color: modalConfig.confirmIsLight
                           ? modalConfig.confirmColor
@@ -369,11 +370,11 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
                 const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color?>(
+                backgroundColor: WidgetStateProperty.all<Color?>(
                     modalConfig.confirmIsDark
                         ? modalConfig.confirmColor ?? Colors.blueGrey
                         : null),
-                textStyle: MaterialStateProperty.all<TextStyle>(
+                textStyle: WidgetStateProperty.all<TextStyle>(
                   TextStyle(
                       color: modalConfig.confirmIsLight
                           ? modalConfig.confirmColor
@@ -575,12 +576,12 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
       itemBuilder: (context, i) {
         return choices!.isAppending && i == choiceList.length
             ? const Center(
-              child: SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator(),
-              ),
-            )
+                child: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(),
+                ),
+              )
             : choiceListBuilder(choiceList[i])!;
       },
       dividerBuilder: builder.choiceDivider,

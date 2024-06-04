@@ -179,20 +179,18 @@ class S2Tile<T> extends StatelessWidget {
 
   Widget? get _trailingWidget {
     return isTwoLine != true && hideValue != true
-        ? Container(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  constraints: const BoxConstraints(maxWidth: 100),
-                  child: _valueWidget,
-                ),
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 5),
-                  child: _trailingIconWidget,
-                ),
-              ],
-            ),
+        ? Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                constraints: const BoxConstraints(maxWidth: 100),
+                child: _valueWidget,
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(start: 5),
+                child: _trailingIconWidget,
+              ),
+            ],
           )
         : _trailingIconWidget;
   }
@@ -213,7 +211,7 @@ class S2Tile<T> extends StatelessWidget {
         return DefaultTextStyle.merge(
           child: isLoading == true ? _loadingWidget : value,
           style: isError == true
-              ? TextStyle(color: Theme.of(context).errorColor)
+              ? TextStyle(color: Theme.of(context).colorScheme.error)
               : null,
           overflow: TextOverflow.ellipsis,
           maxLines: 1,

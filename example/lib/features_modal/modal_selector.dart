@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select/flutter_awesome_select.dart';
+
 import '../choices.dart' as choices;
 
 class FeaturesModalSelector extends StatefulWidget {
@@ -71,9 +72,9 @@ class _FeaturesModalSelectorState extends State<FeaturesModalSelector> {
                   TextButton(
                     child: Text('OK (${state.selection?.length ?? 0})'),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                           Theme.of(context).primaryColor),
-                      textStyle: MaterialStateProperty.all<TextStyle>(
+                      textStyle: WidgetStateProperty.all<TextStyle>(
                           TextStyle(color: Colors.white)),
                     ),
                     onPressed: (state.selection?.isValid ?? true)
@@ -249,9 +250,9 @@ class ActionButton extends StatelessWidget {
       child: label,
       style: ButtonStyle(
         backgroundColor:
-            MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-        textStyle: MaterialStateProperty.all<TextStyle>(
-            TextStyle(color: Colors.white)),
+            WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
+        textStyle:
+            WidgetStateProperty.all<TextStyle>(TextStyle(color: Colors.white)),
       ),
       onPressed: onTap,
     );
