@@ -163,7 +163,7 @@ class _FeaturesModalWidgetState extends State<FeaturesModalWidget> {
                   state,
                   hideValue: true,
                   leading: CircleAvatar(
-                    backgroundColor: _question2 == null
+                    backgroundColor: (_question2.isEmpty && _question2 == null)
                         ? Colors.grey
                         : Theme.of(context).primaryColor,
                     child: const Text(
