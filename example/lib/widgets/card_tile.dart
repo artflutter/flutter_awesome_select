@@ -41,7 +41,7 @@ class CardTile extends StatelessWidget {
                       title,
                       style: Theme.of(context)
                           .textTheme
-                          .headline6
+                          .headlineSmall
                           ?.merge(TextStyle(color: Colors.black54)),
                     ),
                     Container(height: 5),
@@ -49,7 +49,7 @@ class CardTile extends StatelessWidget {
                       value,
                       style: Theme.of(context)
                           .textTheme
-                          .subtitle2
+                          .titleMedium
                           ?.merge(TextStyle(color: Colors.black38)),
                     ),
                   ],

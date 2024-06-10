@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'features_single/single_main.dart';
-import 'features_multi/multi_main.dart';
-import 'features_tile/tile_main.dart';
-import 'features_option/option_main.dart';
-import 'features_modal/modal_main.dart';
-import 'features_choices/choices_main.dart';
+
 import 'features_brightness.dart';
+import 'features_choices/choices_main.dart';
 import 'features_color.dart';
+import 'features_modal/modal_main.dart';
+import 'features_multi/multi_main.dart';
+import 'features_option/option_main.dart';
+import 'features_single/single_main.dart';
+import 'features_tile/tile_main.dart';
 // import 'features_theme.dart';
 import 'keep_alive.dart';
 
@@ -81,7 +82,7 @@ class Features extends StatelessWidget {
             ListTile(
               title: Text(
                 'flutter_awesome_select',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               subtitle: Text('by davigmacode'),
               trailing: IconButton(
@@ -98,7 +99,7 @@ class Features extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Smart select allows you to easily convert your usual form selects to dynamic pages with grouped radio or checkbox inputs. This widget is inspired by Smart Select component from Framework7',
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Container(height: 15),
                   ],
